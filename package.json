@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "gulp",
-    "start": "gulp clean-copy && gulp log && gulp check-image-sizes",
+    "start": "gulp clean-copy && gulp check-image-sizes && gulp check-css-imports && gulp log",
     "log": "gulp log && gulp check-image-sizes",
     "clean": "gulp clean-copy"
   },
