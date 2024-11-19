@@ -1,6 +1,7 @@
 import { log } from "./modules/log.js";
 import { clean } from "./modules/clean.js";
 import { imageCheck } from "./modules/imageCheck.js";
+import { checkCSSImports } from "./modules/cssImportCheck.js";
 import gulp from "gulp";
 
 gulp.task("default", async () => {
@@ -17,3 +18,4 @@ gulp.task("default", async () => {
 imageCheck();
 log();
 clean();
+checkCSSImports();
