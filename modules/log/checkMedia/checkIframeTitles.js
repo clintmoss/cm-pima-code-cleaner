@@ -1,4 +1,4 @@
-import { config, errorMessages } from "../../../config.js";
+import { config, errorMessages } from "../../../config/config.js";
 
 const titlesToCheck = config.titlesToCheck;
 const iframesToExclude = config.iframesToExclude;

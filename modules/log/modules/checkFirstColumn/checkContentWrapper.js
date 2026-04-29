@@ -1,4 +1,4 @@
-import { config, errorMessages } from "../../../../config.js";
+import { config, errorMessages } from "../../../../config/config.js";
 
 export function checkContentWrapper(document, filePath, errors) {
   const fileErrors = [];

@@ -1,4 +1,4 @@
-import { config, errorMessages } from "../../../config.js";
+import { config, errorMessages } from "../../../config/config.js";
 
 export function checkImgAttributes(document, filePath, errors) {
   const fileErrors = [];

@@ -1,4 +1,4 @@
-import { errorMessages } from '../../../../config.js';
+import { errorMessages } from '../../../../config/config.js';
 
 
 export function checkNestedElements(contentBody, nestedElements, errors, filePath) {
