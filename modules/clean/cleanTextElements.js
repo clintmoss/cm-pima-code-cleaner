@@ -3,7 +3,7 @@
  * from standard text-based HTML elements like headings, paragraphs, and lists.
  */
 import { domTransform } from "../hooks/domTransform.js";
-import { config } from "../../config.js";
+import { config } from "../../config/config.js";
 
 export function cleanTextElements() {
 	return domTransform((document) => {

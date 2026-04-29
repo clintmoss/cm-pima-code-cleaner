@@ -3,7 +3,7 @@
  * matches the content of the first <h1> tag on the page.
  */
 import { domTransform } from "../hooks/domTransform.js";
-import { config } from "../../config.js";
+import { config } from "../../config/config.js";
 
 export function matchTitleToH1() {
 return domTransform((document) => {

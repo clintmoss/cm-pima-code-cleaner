@@ -3,7 +3,7 @@
  * from any element where it is found.
  */
 import { domTransform } from "../hooks/domTransform.js";
-import { config } from "../../config.js";
+import { config } from "../../config/config.js";
 
 export function removeRolePresentation() {
   return domTransform((document) => {

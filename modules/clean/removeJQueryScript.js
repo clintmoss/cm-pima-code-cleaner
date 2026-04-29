@@ -2,7 +2,7 @@
  * @file Defines a Gulp transformation to find and remove the script tag that imports jQuery.
  */
 import { domTransform } from "../hooks/domTransform.js";
-import { config } from "../../config.js";
+import { config } from "../../config/config.js";
 
 export function removeJQueryScript() {
 	return domTransform((document) => {

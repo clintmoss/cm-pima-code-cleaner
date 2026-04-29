@@ -4,7 +4,7 @@
  * images being incorrectly wrapped in <p> tags.
  */
 import { domTransform } from "../hooks/domTransform.js";
-import { config } from "../../config.js";
+import { config } from "../../config/config.js";
 
 export function cleanImageAttributes() {
 	return domTransform((document) => {

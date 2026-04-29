@@ -4,7 +4,7 @@
  *  
  */
 import { domTransform } from "../hooks/domTransform.js";
-import { config } from "../../config.js";
+import { config } from "../../config/config.js";
 
 // Helper function to specifically target empty text nodes using a TreeWalker vs query selector
 function removeEmptyTextNodes(root) {

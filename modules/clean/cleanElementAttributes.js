@@ -3,7 +3,7 @@
  * from various block-level elements like divs and spans.
  */
 import { domTransform } from "../hooks/domTransform.js";
-import { config } from "../../config.js";
+import { config } from "../../config/config.js";
 
 // remove 'style' attribute from given elements
 export function cleanElementAttributes() {

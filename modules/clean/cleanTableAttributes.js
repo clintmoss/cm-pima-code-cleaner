@@ -4,7 +4,7 @@
  * 'cellspacing', 'cellpadding', 'width', and 'style'.
  */
 import { domTransform } from "../hooks/domTransform.js";
-import { config } from "../../config.js";
+import { config } from "../../config/config.js";
 
 export function cleanTableAttributes() {
   return domTransform((document) => {
