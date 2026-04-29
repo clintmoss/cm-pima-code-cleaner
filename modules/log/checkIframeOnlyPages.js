@@ -1,4 +1,4 @@
-import { config } from '../../config.js';
+import { config } from '../../config/config.js';
 
 export function checkIframeOnlyPages(document) {
   // Get all children of the body tag

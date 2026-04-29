@@ -14,6 +14,7 @@ import { checkMedia } from "./checkMedia.js";
 import { checkIframeOnlyPages } from "./checkIframeOnlyPages.js";
 import { checkIframeTitles } from "./checkMedia/checkIframeTitles.js";
 import { checkText } from "./checkText.js";
+import { rules } from "../../config/rules.js";
 
 // --- Grouped checks for orchestration ---
 
@@ -48,15 +49,26 @@ const standardPageChecks = [
  */
 export function runAllChecks({ document, filePath, errors, html }) {
   if (checkIframeOnlyPages(document)) {
-    for (const check of iframeOnlyPageChecks) {
-      check(document, filePath, errors);
+    if (rules.log.checkIframeOnlyPages) {
+      for (const check of iframeOnlyPageChecks) {
+        check(document, filePath, errors);
+      }
     }
   } else {
     // `checkHead` is special as it needs the raw html content.
-    checkHead(document, filePath, errors, html);
+    if (rules.log.checkHead) {
+      checkHead(document, filePath, errors, html);
+    }
 
     // Run all other standard checks.
     for (const check of standardPageChecks) {
+      if (check === checkHeader && !rules.log.checkHeader) continue;
+      if (check === checkFirstColumn && !rules.log.checkFirstColumn) continue;
+      if (check === checkContentBody && !rules.log.checkContentBody) continue;
+      if (check === checkDeprecated && !rules.log.checkDeprecated) continue;
+      if (check === checkMedia && !rules.log.checkMedia) continue;
+      if (check === checkText && !rules.log.checkText) continue;
+      
       check(document, filePath, errors);
     }
   }

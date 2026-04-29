@@ -1,6 +1,7 @@
 import { checkNestedElements } from "./modules/checkContentBody/checkNestedElements.js";
 import { checkValidParent } from "./modules/checkContentBody/checkValidParent.js";
-import { config, errorMessages } from '../../config.js';
+import { config, errorMessages } from '../../config/config.js';
+import { rules } from "../../config/rules.js";
 
 export function checkContentBody(document, filePath, errors) {
   const nestedElements = config.elementsShouldNotBeNested;
@@ -12,9 +13,11 @@ export function checkContentBody(document, filePath, errors) {
   }
 
   contentBodies.forEach(contentBody => {
-    checkNestedElements(contentBody, nestedElements, errors, filePath);
+    if (rules.log.checkContentBody.checkNestedElements) {
+      checkNestedElements(contentBody, nestedElements, errors, filePath);
+    }
 
-    if (!checkValidParent(contentBody, validParents)) {
+    if (rules.log.checkContentBody.checkValidParent && !checkValidParent(contentBody, validParents)) {
       errors[filePath].push({
 				message: errorMessages.contentBodyNotValidErrorMessage,
 				node: contentBody,

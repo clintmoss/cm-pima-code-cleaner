@@ -1,6 +1,7 @@
 import { checkDoctype } from "./modules/checkHead/checkDoctype.js";
 import { checkHtmlLang } from "./modules/checkHead/checkHtmlLang.js";
 import { checkJquery } from "./modules/checkHead/checkJquery.js";
+import { rules } from "../../config/rules.js";
 
 /**
  * Orchestrates all checks related to the <head> of the document.
@@ -10,7 +11,13 @@ import { checkJquery } from "./modules/checkHead/checkJquery.js";
  * @param {string} htmlContent The raw HTML content of the file.
  */
 export function checkHead(document, filePath, errors, htmlContent) {
-  checkDoctype(document, filePath, errors, htmlContent);
-  checkHtmlLang(document, filePath, errors);
-  checkJquery(document, filePath, errors);
+  if (rules.log.checkHead.checkDoctype) {
+    checkDoctype(document, filePath, errors, htmlContent);
+  }
+  if (rules.log.checkHead.checkHtmlLang) {
+    checkHtmlLang(document, filePath, errors);
+  }
+  if (rules.log.checkHead.checkJquery) {
+    checkJquery(document, filePath, errors);
+  }
 }
